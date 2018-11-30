@@ -12,15 +12,55 @@
             slide(enter='fadeIn' class="slide-2")
                 img(src="../assets/cagartner.jpg")
                 h1 Quem Sou Eu?
-                p(class="author") Meu nome é <strong>Carlos Augusto Gartner</strong>
+                p.author Meu nome é <strong>Carlos Augusto Gartner</strong>
                 ul
                     li Desenvolvedor since 2011
                     li Full-stack Developer PHP e Node
-                    li(class="trezo") Sênior Frontend Developer na <span>Trezo Soluções WEB</span>
+                    li.trezo Sênior Frontend Developer na <span>Trezo Soluções WEB</span>
 
-            slide(enter="fadeIn" class="slide-3")
+            slide(enter="fadeIn" class="slide-3" :steps="2")
+                h1 Antes de mais nada...
+                eg-transition(enter='fadeIn')
+                    h2.s-cl(v-if="step >= 2") Se pronuncia <strong class="d-cl">VIEW</strong>.
 
+            slide(enter="fadeIn" class="slide-history" :steps="5")
+                h1 Um pouco de <span class="p-cl">história</span>...
+                ul
+                    li(v-if='step >= 2') Criado por <span class="p-cl">Evan You</span>.
+                    li(v-if='step >= 3') Iniciado em <span class="p-cl">2013</span>.
+                    li(v-if='step >= 4') Lançado em <span class="p-cl">20014</span>.
+                    li(v-if='step >= 5') Trabalhou na Google com Projetos em Angular.
 
+            slide(enter="fadeIn" :steps="6")
+                h1 Simplicidade:
+                ul
+                    li(v-if='step >= 2') runtime
+                    li(v-if='step >= 3') webpack
+                    li(v-if='step >= 4') web components
+                    li(v-if='step >= 5') browserify
+                    li(v-if='step >= 6') requirejs
+
+            slide(enter="fadeIn" :steps="14")
+                h1 Escolha:
+                ul
+                    li(v-if='step >= 2') Use no HTML
+                    li(v-if='step >= 3') Use como string no Javascript
+                    li(v-if='step >= 4') Use como JSX
+                    li(v-if='step >= 5') Template:
+                        ul
+                            li(v-if='step >= 6') HTML Binding
+                            li(v-if='step >= 7') JSX
+                            li(v-if='step >= 8') Jade
+                            li(v-if='step >= 9') Pug
+                    li(v-if='step >= 10') Componente:
+                        ul
+                            li(v-if='step >= 11') ES5
+                            li(v-if='step >= 12') ES6/ES7
+                            li(v-if='step >= 13') ES6 + Flow
+                            li(v-if='step >= 14') TypeScript
+
+            slide(enter="fadeIn")
+                h1 
 </template>
 
 <script>
@@ -66,6 +106,18 @@
                     margin: 1rem 0;
                 }
 
+                .p-cl {
+                    color: $primary-color;
+                }
+
+                .s-cl {
+                    color: $secondary-color;
+                }
+
+                .d-cl {
+                    color: $body-color;
+                }
+
                 &.slide-1 {
                     .header {
                         display: flex;
@@ -100,15 +152,16 @@
                         border-radius: 50%;
                     }
 
-                    ul {
-                        margin: 0 auto;
-                        text-align: left;
-                    }
-
                     h1 {
                         font-size: 5rem;
                     }
                 }
+
+                ul {
+                    margin: 0 auto;
+                    text-align: left;
+                }
+
             }
         }
     }
