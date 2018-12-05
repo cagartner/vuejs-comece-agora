@@ -1,5 +1,7 @@
 # vuejs-comece-agora
 
+Link da apresentação: https://cagartner.github.io/vuejs-comece-agora/
+
 ## Project setup
 ```
 npm install
