@@ -307,6 +307,11 @@
                 p Precisa rodar build para testar
 
             slide(enter="fadeIn")
+                h1 "Por fim esse Slide foi feito com Vue"
+                p https://cagartner.github.io/vuejs-comece-agora/
+                p Fonte: https://github.com/cagartner/vuejs-comece-agora
+
+            slide(enter="fadeIn")
                 h1 Dúvidas?
 
             slide(enter="fadeIn")
