@@ -286,7 +286,7 @@
                     &lt;/style&gt;
 
             slide(enter="fadeIn")
-                h1.d2 Use como web componente no seu projeto.
+                h1.d2 Use como web <br>componente no seu projeto.
                 eg-code-block(lang="html").
                     &lt;html&gt;
                         &lt;head&gt;
@@ -307,7 +307,8 @@
                 p Precisa rodar build para testar
 
             slide(enter="fadeIn")
-                h1 "Por fim esse Slide foi feito com Vue"
+                h1 OBS
+                p Esse slide foi feito em vue
                 p https://cagartner.github.io/vuejs-comece-agora/
                 p Fonte: https://github.com/cagartner/vuejs-comece-agora
 
