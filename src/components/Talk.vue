@@ -217,19 +217,39 @@
                 p Roda em runtime
 
             slide(enter="fadeIn")
-                h1.d2 Implementação Avançada
+                h1.d2 Implementação Avançada <br> com Laravel Mix
+                p https://laravel-mix.com/docs/2.1/installation
                 eg-code-block(lang="sh").
-                    npm install -g @vue/cli
-                    # OU
-                    yarn global add @vue/cli
+                    // pasta do frontend do seu projeto
+                    npm init -y
+                    npm install laravel-mix --save-dev
+                    cp node_modules/laravel-mix/setup/webpack.mix.js ./
+                    // instale Vue.js
+                    npm install vue
 
             slide(enter="fadeIn")
-                h1.d2 Crie um novo projeto
-                eg-code-block(lang="sh").
-                    # Crie o novo projeto
-                    vue create my-app
-                p E copie para uma pasta do seu projeto e chame os arquivos após o build
-                p No layout principal da sua aplicação defina o ID do aplicativo
+                h1.d2 Crie um arquivo main.js
+                eg-code-block(lang="javascript").
+                    # importe o vue no main.js
+                    import Vue from 'vue'
+
+                    # Import de seus componentes do projeto
+                    import HelloWorld from './components/HelloWorld.vue'
+
+                    new Vue({
+                        el: '#app',
+                        components: {
+                            'hello-world': HelloWorld
+                        }
+                    })
+
+            slide(enter="fadeIn")
+                h1.d2 Configure webpack.mix.js
+                eg-code-block(lang="javascript").
+                    let mix = require('laravel-mix');
+
+                    mix.js('src/main.js', 'dist/');
+                p Veja a mágica acontecer!
 
             slide(enter="fadeIn")
                 h1.d2 Componente VUE
@@ -240,6 +260,7 @@
             slide(enter="fadeIn")
                 h1.d2 Exemplo de Componente
                 eg-code-block(lang="html").
+                    <!-- // components/HelloWorld.Vue -->
                     &lt;template&gt;
                         &lt;div class=&quot;hello-world&quot;&gt;
                             {{ heloWorldExample }}
@@ -248,7 +269,7 @@
 
                     &lt;script&gt;
                         export default {
-                            name: 'app',
+                            name: 'helloWorld',
                             data: function () {
                                 return {
                                     message: 'Example'
