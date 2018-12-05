@@ -7,7 +7,6 @@
                     .left
                         h1 Vue.js
                         h2 Implementando em Projetos já existentes.
-                .content
 
             slide(enter='fadeIn' class="slide-2")
                 img(src="../assets/cagartner.jpg")
@@ -103,6 +102,44 @@
                             &lt;a v-on:click=&quot;doMethod&quot;&gt;&lt;/a&gt;
                             &lt;!-- abreviado --&gt;
                             &lt;a @click=&quot;doMethod&quot;&gt;&lt;/a&gt;
+
+            slide(enter="fadeIn")
+                h1.d2 Loop
+                eg-code-block(lang="html").
+                    &lt;ul&gt;
+                        &lt;li v-for=&quot;todo in todoList&quot;&gt;{{ exampleLoop }}&lt;/li&gt;
+                    &lt;/ul&gt;
+                eg-code-block(lang="js").
+                    &lt;!-- JS --&gt;
+                    var methods = new Vue({
+                        el: '#loop',
+                        data: {
+                            todoList: [
+                                {id: 1, task: "Fazer Palestras"},
+                                {id: 2, task: "Responder Perguntas"},
+                                {id: 3, task: "Agradecimentos"},
+                            ]
+                        }
+                    })
+
+            slide(enter="fadeIn")
+                h1.d2 IF
+                eg-code-block(lang="html").
+                    &lt;ul&gt;
+                        &lt;li v-for=&quot;todo in todoList&quot; v-if=&quot;!todo.finished&quot;&gt;{{ exampleLoop }}&lt;/li&gt;
+                    &lt;/ul&gt;
+                eg-code-block(lang="js").
+                    &lt;!-- JS --&gt;
+                    var methods = new Vue({
+                        el: '#loop',
+                        data: {
+                            todoList: [
+                                {id: 1, task: "Fazer Palestras", finished: true},
+                                {id: 2, task: "Responder Perguntas", finished: false},
+                                {id: 3, task: "Agradecimentos", finished: false},
+                            ]
+                        }
+                    })
 
             slide(enter="fadeIn")
                 h1.d2 Manipulação de Eventos
@@ -267,7 +304,8 @@
                 message: 'Exemplo',
                 heloWorldExample: '{{ message }}',
                 exampleMethod: '{{ counter }}',
-                exampleFormBinding: '{{ message }}'
+                exampleFormBinding: '{{ message }}',
+                exampleLoop: '{{ todo.task }}'
             }
         },
         mixins: [Slideshow]
