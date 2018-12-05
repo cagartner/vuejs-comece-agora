@@ -17,6 +17,8 @@
                     li Desenvolvedor since 2011
                     li Full-stack Developer PHP e Node
                     li.trezo Sênior Frontend Developer na <span>Trezo Soluções WEB</span>
+                    li <i class="fab fa-github"></i> github.com/cagartner
+                    li <i class="fab fa-medium"></i> medium.com/@cagartner
 
             slide(enter="fadeIn" class="slide-3" :steps="2")
                 h1 Antes de mais nada...
@@ -60,16 +62,214 @@
                             li(v-if='step >= 14') TypeScript
 
             slide(enter="fadeIn")
-                h1 
+                h1 O Básico
+                eg-code-block(lang="html").
+                    &lt;html&gt;
+                        &lt;head&gt;
+                           // ...
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;div id=&quot;app&quot;&gt;
+                                {{ heloWorldExample }}
+                            &lt;/div&gt;
+
+                             &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;
+                             &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                eg-code-block(lang="js").
+                    // app.js file
+                    var app = new Vue({
+                        el: '#app',
+                        data: {
+                            message: 'Hello Vue!'
+                        }
+                    });
+
+            slide(enter="fadeIn")
+                h1.d2 Diretivas
+                .columns.wide
+                    .column
+                        h3 v-bind
+                        eg-code-block(lang="html").
+                            &lt;!-- sintaxe completa --&gt;
+                            &lt;a v-bind:href=&quot;url&quot;&gt;&lt;/a&gt;
+                            &lt;!-- abreviado --&gt;
+                            &lt;a :href=&quot;url&quot;&gt;&lt;/a&gt;
+                    .column
+                        h3 v-on
+                        eg-code-block(lang="html").
+                            &lt;!-- sintaxe completa --&gt;
+                            &lt;a v-on:click=&quot;doMethod&quot;&gt;&lt;/a&gt;
+                            &lt;!-- abreviado --&gt;
+                            &lt;a @click=&quot;doMethod&quot;&gt;&lt;/a&gt;
+
+            slide(enter="fadeIn")
+                h1.d2 Manipulação de Eventos
+                eg-code-block(lang="html").
+                    &lt;!-- HTML --&gt;
+                    &lt;div id=&quot;methods&quot;&gt;
+                        &lt;button v-on:click=&quot;addCounter()&quot;&gt;Adiciona 1&lt;/button&gt;
+                        &lt;p&gt;Voc&ecirc; clicou {{ exampleMethod }} vezes&lt;/p&gt;
+                    &lt;/div&gt;
+                eg-code-block(lang="js").
+                    &lt;!-- JS --&gt;
+                    var methods = new Vue({
+                        el: '#methods',
+                        data: {
+                            counter: 0
+                        },
+                        methods: {
+                            addCounter: function () {
+                                this.counter += 1;
+                            }
+                        }
+                    })
+
+            slide(enter="fadeIn")
+                h1.d2 Form Input Binding
+                eg-code-block(lang="html").
+                    &lt;!-- HTML --&gt;
+                    &lt;input v-model=&quot;message&quot; placeholder=&quot;Me altere&quot;&gt;
+                    &lt;p&gt;Mensagem é: {{ exampleFormBinding }}&lt;/p&gt;
+                hr
+                input(v-model="message")
+                p Mensagem é: {{ message }}
+
+            slide(enter="fadeIn")
+                h1.d2 Chega de Blábláblá...
+                h3 Vamos ao que interessa!
+
+            slide(enter="fadeIn" :steps="2")
+                h1.d3 Então, posso implementar em um projeto já existente?
+                h3(v-if='step >= 2') Resposta: Sim!
+
+            slide(enter="fadeIn" :steps="2")
+                h1.d3 Implementação Básica
+                eg-code-block(lang="html").
+                    &lt;html&gt;
+                        &lt;head&gt;
+                           // ...
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;div id=&quot;app&quot;&gt;
+                                {{ heloWorldExample }}
+                            &lt;/div&gt;
+
+                             &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;
+                             &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                eg-code-block(lang="js").
+                    // app.js file
+                    var app = new Vue({
+                        el: '#app',
+                        data: {
+                            message: 'Hello Vue!'
+                        }
+                    });
+
+            slide(enter="fadeIn")
+                h1 Exemplo Prático
+                p  github.com/cagartner/vue-exemplo-simples
+
+            slide(enter="fadeIn")
+                h1 Desvatagens
+                p Método antigo e ultrapassado
+                p Necessário criar vários scripts para cada componente
+                p Roda em runtime
+
+            slide(enter="fadeIn")
+                h1.d2 Implementação Avançada
+                eg-code-block(lang="sh").
+                    npm install -g @vue/cli
+                    # OU
+                    yarn global add @vue/cli
+
+            slide(enter="fadeIn")
+                h1.d2 Crie um novo projeto
+                eg-code-block(lang="sh").
+                    # Crie o novo projeto
+                    vue create my-app
+                p E copie para uma pasta do seu projeto e chame os arquivos após o build
+                p No layout principal da sua aplicação defina o ID do aplicativo
+
+            slide(enter="fadeIn")
+                h1.d2 Componente VUE
+                p Centralização
+                p HTML, CSS e JS no mesmo arquivo
+                p Reutilização
+
+            slide(enter="fadeIn")
+                h1.d2 Exemplo de Componente
+                eg-code-block(lang="html").
+                    &lt;template&gt;
+                        &lt;div class=&quot;hello-world&quot;&gt;
+                            {{ heloWorldExample }}
+                        &lt;/div&gt;
+                    &lt;/template&gt;
+
+                    &lt;script&gt;
+                        export default {
+                            name: 'app',
+                            data: function () {
+                                return {
+                                    message: 'Example'
+                                }
+                            }
+                        }
+                    &lt;/script&gt;
+
+                    &lt;style &gt;
+                        .hello-world {
+                            color: red;
+                            font-size: 2rem;
+                        }
+                    &lt;/style&gt;
+
+            slide(enter="fadeIn")
+                h1.d2 Use como web componente no seu projeto.
+                eg-code-block(lang="html").
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            // ...
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                             &lt;div id=&quot;app&quot;&gt;
+                                &lt;hello-world&gt;&lt;/hello-world&gt;
+                             &lt;/div&gt;
+                            &lt;script src=&quot;build.js&quot;&gt;&lt;/script&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+
+
+            slide(enter="fadeIn")
+                h1.d2 Desvantagem
+                p Sem tag script no meio do código
+                p Precisa rodar build para testar
+
+            slide(enter="fadeIn")
+                h1 Dúvidas?
+
+            slide(enter="fadeIn")
+                h1 "Less is More"
+                small.p-cl You, Evan - Criador do VueJS
 </template>
 
 <script>
     import 'eagle.js/dist/themes/agrume/agrume.css'
-
     import {Slideshow} from 'eagle.js'
 
     export default {
         name: 'Talk',
+        data() {
+            return {
+                message: 'Exemplo',
+                heloWorldExample: '{{ message }}',
+                exampleMethod: '{{ counter }}',
+                exampleFormBinding: '{{ message }}'
+            }
+        },
         mixins: [Slideshow]
     }
 </script>
@@ -104,6 +304,18 @@
                 h2 {
                     font-size: 6rem;
                     margin: 1rem 0;
+                }
+
+                .d1 {
+                    font-size: 8rem;
+                }
+
+                .d2 {
+                    font-size: 6rem;
+                }
+
+                .d3 {
+                    font-size: 4rem;
                 }
 
                 .p-cl {
@@ -163,6 +375,24 @@
                 }
 
             }
+
+            .eg-code-block {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .columns {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        &.wide {
+            width: 80vw;
+        }
+
+        .column {
+            width: 49.5%;
         }
     }
 
